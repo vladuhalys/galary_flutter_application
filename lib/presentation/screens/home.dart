@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galary_flutter_application/presentation/widgets/photo_card_list.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,8 +12,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text('Hello World'),
+      body: SafeArea(
+        child: Center(
+          child: PhotoCardList(),
+        ),
       ),
     );
   }
