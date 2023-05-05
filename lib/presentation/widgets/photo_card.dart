@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:galary_flutter_application/domain/models/photo.dart';
@@ -41,19 +43,23 @@ class PhotoCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-                        photo.authorName.toString(),
-                        style: const TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                      Text(
-                        photo.description.toString(),
-                        style: const TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          utf8.decode(photo.authorName.toString().runes.toList()),
+                          style: const TextStyle(color: Colors.white, fontSize: 20.0),
+                        ),
+                        if(photo.description != null)
+                          Text(
+                            utf8.decode(photo.description.toString().runes.toList()),
+                            style: const TextStyle(color: Colors.white, fontSize: 20.0),
+                          ),
+                      ],
+                    ),
                   ),
-                  
                 ),
               ],
             );
