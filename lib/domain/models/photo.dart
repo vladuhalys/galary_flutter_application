@@ -12,7 +12,7 @@ class Photo {
     return Photo(
       urlImage: json["urls"]["full"] as String,
       authorName: json["user"]["name"],
-      description: json['alpha2Code'],
+      description: json["alt_description"],
     );
   }
 }
